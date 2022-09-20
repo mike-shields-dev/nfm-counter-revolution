@@ -2,14 +2,16 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "../components/App";
 
-it("App matches snapshot", () => {
-  const { asFragment } = render(<App />);
+describe("App", () => {
+  it("matches snapshot", () => {
+    const { asFragment } = render(<App />);
 
-  expect(asFragment()).toMatchSnapshot();
-});
+    expect(asFragment()).toMatchSnapshot();
+  });
 
-test("renders learn react link", () => {
-  render(<App />);
+  it("is rendered", () => {
+    render(<App />);
 
-  expect(screen.getByTestId("app")).toBeInTheDocument();
+    expect(screen.getByTestId("app")).toBeInTheDocument();
+  });
 });
