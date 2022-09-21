@@ -18,12 +18,12 @@ describe("App", () => {
   it("renders a the content area", () => {
     render(<App />);
 
-    expect(screen.getByText(/content/i)).toBeInTheDocument();
+    expect(screen.getByTestId("content")).toBeInTheDocument();
   });
 
   it("renders a the revolver area", () => {
     render(<App />);
 
-    expect(screen.getByText(/revolver/i)).toBeInTheDocument();
+    expect(screen.getByTestId("revolver")).toBeInTheDocument();
   });
 });

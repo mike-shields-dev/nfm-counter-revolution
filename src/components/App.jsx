@@ -1,15 +1,18 @@
 import React from "react";
 import "../styles/App.css";
+import Revolver from "./Revolver";
 
 const App = () => {
   return (
     <div className="App">
       <header>
-        <h1>Counter Revolution</h1>
+        <h1>title</h1>
       </header>
       <main>
-        <div className="content">Content</div>
-        <div className="revolver">Revolver</div>
+        <div className="content" data-testid="content">
+          Content
+        </div>
+        <Revolver />
       </main>
     </div>
   );
