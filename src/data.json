@@ -1,0 +1,61 @@
+[
+    {
+        "id": 0,
+        "title": "figure 0",
+        "angle": 0,
+        "text": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet hendrerit augue, quis commodo quam. Morbi non justo ut odio dictum consectetur. Vivamus dignissim metus nec ligula laoreet, ut auctor nunc rutrum. Mauris vitae nulla quam. Morbi sed sem nulla. Nulla facilisi. Nam faucibus accumsan iaculis. Suspendisse ac dapibus mi. Sed eget velit mi. Nullam blandit, leo at faucibus feugiat, leo eros viverra turpis, vel finibus mi augue et eros.",
+            "Nunc nisl lacus, mollis ut fermentum et, tristique id odio. Nam tincidunt bibendum convallis. Donec laoreet sapien eu tortor tristique auctor. Donec ullamcorper malesuada lorem, eu sodales erat ornare ac. Etiam nec mauris sit amet velit molestie posuere sit amet nec elit. Curabitur id massa non libero ullamcorper porta. Phasellus sed leo eu nisi vehicula ornare. Integer rhoncus venenatis odio, at placerat turpis consectetur id. Fusce sodales accumsan feugiat. Quisque fermentum malesuada pharetra. Vestibulum dui lacus, efficitur sit amet est eget, efficitur elementum urna. Aliquam sodales a augue sit amet malesuada. Nulla semper vitae libero at semper. In sit amet posuere tortor",
+            "Nulla facilisi. Donec et egestas erat. In sed aliquam leo. Aenean eu mi eget libero sodales viverra eget nec tellus. Fusce egestas magna purus, nec vehicula sapien."
+        ]
+    },
+    {
+        "id": 1,
+        "title": "figure 1",
+        "angle": -60,
+        "text": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim quis ex nec tincidunt. Mauris semper sit amet eros vel pretium. Ut ultrices enim sit amet felis dignissim tempus. Donec venenatis dolor eros, vel volutpat mauris ornare vel. Aenean non neque nec sem lobortis mattis sed at eros. Donec vel enim in massa mollis congue vitae vitae lorem. Nam rutrum id enim eu sollicitudin. Aliquam tortor dui, eleifend quis diam id, tempus pharetra risus. Donec tincidunt accumsan pretium. Sed ac feugiat nibh. Nam hendrerit neque sit amet cursus efficitur. Cras condimentum felis eu turpis maximus, vitae malesuada dui faucibus. Cras tempor interdum risus, ac fringilla mi. Nunc ut lorem enim. Praesent gravida dolor in sem accumsan egestas.",
+            "Pellentesque auctor nulla urna. Maecenas porttitor iaculis velit nec congue. Aenean lobortis lacus nunc, quis fringilla tellus iaculis eu. Sed ullamcorper eros at ex pretium, quis mollis lorem elementum. Pellentesque felis risus, vehicula eu tincidunt vel, venenatis a est. Vestibulum porta euismod lacinia. Pellentesque eget convallis nibh.",
+            "Nunc venenatis sed quam et pretium. Integer pretium leo quam, a rhoncus mauris venenatis posuere. Mauris volutpat quis sem sit amet auctor. Fusce condimentum, orci in pharetra ultricies, neque urna eleifend mauris, vitae sodales purus magna."
+        ]
+    },
+    {
+        "id": 2,
+        "title": "figure 2",
+        "angle": -120,
+        "text": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum justo sed lacus malesuada faucibus. Quisque justo lectus, faucibus id venenatis a, volutpat vel urna. Donec vel sollicitudin dui, eget varius enim. Aenean vitae quam auctor, hendrerit metus quis, laoreet odio. Nam ut sem sit amet nibh dictum tempor vitae eu nunc. Praesent quis nulla eu mauris euismod placerat. Quisque tristique orci cursus ante aliquam tristique.",
+            "Etiam lectus nisl, mollis vel dui vitae, laoreet varius purus. Aliquam et malesuada mauris. Donec id nulla elementum, dignissim lectus vitae, euismod nibh. Sed nec imperdiet velit, sed pretium neque. Duis nec ex at urna accumsan tincidunt nec sed sapien. Etiam viverra augue quis aliquam placerat. Curabitur vitae lacus ut augue maximus bibendum. Mauris maximus feugiat sapien at congue. Etiam metus velit, lacinia eget rutrum sit amet, vestibulum vitae lorem. Nulla dapibus magna sit amet ex condimentum ornare.",
+            "Curabitur fermentum nibh mauris, at tempus augue ornare ut. Etiam cursus auctor metus tincidunt porttitor. Maecenas elementum metus sodales dignissim sagittis. Morbi nec orci a orci cursus euismod a sit amet purus. Mauris pellentesque felis non risus ultricies, vel tristique nibh varius. Suspendisse et libero vehicula, facilisis sem ac, rhoncus lorem. Integer mauris urna, euismod sollicitudin."
+        ]
+    },
+    {
+        "id": 3,
+        "title": "figure 3",
+        "angle": -180,
+        "text": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta enim in vestibulum lobortis. Suspendisse laoreet est ac leo placerat imperdiet condimentum vel ligula. Nullam vitae dapibus ipsum, sit amet iaculis nisi. Vestibulum vulputate iaculis pellentesque. Ut maximus pellentesque neque sed feugiat. Etiam porttitor consequat metus, nec varius nulla pretium vitae. Mauris magna urna, aliquet quis orci vitae, dignissim dapibus tortor. Quisque quis metus a quam eleifend viverra nec eget purus. Nam nunc libero, lacinia nec mi vitae, semper maximus ipsum.",
+            "Quisque bibendum velit gravida ipsum interdum, sed sollicitudin nibh imperdiet. Pellentesque et bibendum erat, consectetur dapibus quam. Etiam rutrum in mauris at interdum. Donec quis eros ex. Proin sit amet ligula ornare, tristique ex vehicula, posuere neque. Phasellus ac venenatis lorem, at dictum nulla. Nullam nulla justo, viverra non sem eget, feugiat eleifend diam. Ut feugiat purus vitae posuere ornare. In consectetur mi nec volutpat interdum. Proin varius mattis ligula et suscipit. Suspendisse justo nibh, tincidunt non ornare vitae, euismod nec felis.",
+            "Vestibulum molestie leo at arcu pulvinar rutrum. Aliquam est arcu, consequat non nulla sed, rutrum elementum eros. Integer eu dapibus justo. Ut quis ipsum eu mi pharetra rutrum in non libero. Lorem ipsum dolor sit amet, consectetur."
+        ]
+    },
+    {
+        "id": 4,
+        "title": "figure 4",
+        "angle": -240,
+        "text": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur viverra ultricies ipsum sed molestie. Ut dapibus turpis mi, sit amet pellentesque neque tempor eget. In luctus tristique tellus et vulputate. Vivamus semper tempor ante, eu rutrum tortor dapibus vel. Morbi a ex massa. Sed iaculis varius nisi quis feugiat. Donec aliquam dolor arcu, id dignissim lorem aliquet vitae. Aenean vitae aliquam magna. In nisl nunc, ultricies non ex ac, consequat interdum lorem. Donec ut consectetur ante. Proin id consequat justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur imperdiet elit erat, ac ullamcorper urna ullamcorper sed. Cras ac dui ut odio rhoncus maximus gravida et nunc. Nam at suscipit quam, vitae feugiat massa. Aenean in nunc eget metus luctus sodales.",
+            "Aenean turpis massa, mattis non sagittis efficitur, pharetra nec urna. Suspendisse sit amet libero id ex pharetra scelerisque. Fusce rutrum, velit eu varius venenatis, dui orci rhoncus ex, ut maximus elit lorem bibendum eros. Aenean eleifend magna et est posuere, sed pretium nibh mattis. Pellentesque semper nibh risus, non laoreet leo iaculis ac. Integer non rutrum nulla. Nulla id dui ut est tempus suscipit sed in tortor. Morbi cursus elit ac felis ultrices, in."
+        ]
+    },
+    {
+        "id": 5,
+        "title": "figure 5",
+        "angle": -300,
+        "text": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet justo ornare laoreet volutpat. Maecenas est ex, gravida et eleifend nec, vestibulum nec lorem. Donec iaculis quam ac placerat viverra. Morbi molestie massa at laoreet maximus. Nulla dictum sodales rhoncus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam laoreet ut urna gravida rhoncus. Ut varius felis scelerisque lacus commodo, vel ornare purus posuere.",
+            "Praesent ac lorem nec elit interdum consequat quis non lectus. Nulla lacinia rutrum nulla, gravida dapibus augue suscipit eget. Mauris dapibus malesuada elementum. Praesent viverra metus non magna ultricies, sit amet porttitor ligula consectetur. Vivamus condimentum nisl nisl, a vulputate dui interdum et. Nulla fermentum fringilla lacus quis mattis. Aliquam aliquam auctor bibendum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+            "Aenean accumsan accumsan erat quis hendrerit. Morbi auctor finibus nibh, non dignissim est egestas non. Nam condimentum ligula id sagittis ullamcorper. Phasellus eu eros sem. Vestibulum egestas tempor purus, nec tincidunt ipsum accumsan in. Cras nisi lacus, rutrum eget arcu vel, maximus dictum lacus. Nam egestas dui at nibh ultrices, quis mollis urna pretium. Maecenas mollis, augue a lobortis tincidunt, ligula lorem ullamcorper purus, eget efficitur."
+        ]
+    }
+]
