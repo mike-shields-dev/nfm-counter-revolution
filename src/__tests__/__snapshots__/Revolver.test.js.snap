@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Revolver matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="revolver"
+    data-testid="revolver"
+  >
+    <button
+      type="button"
+    >
+      increment index
+    </button>
+  </div>
+</DocumentFragment>
+`;

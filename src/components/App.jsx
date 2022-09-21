@@ -19,7 +19,7 @@ const App = () => {
         <div className="content" data-testid="content">
           {currentFigure.text}
         </div>
-        <Revolver incrementIndex={incrementIndex} />
+        <Revolver handleClick={incrementIndex} />
       </main>
     </div>
   );
