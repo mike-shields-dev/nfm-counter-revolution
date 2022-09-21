@@ -7,7 +7,7 @@ exports[`App matches snapshot 1`] = `
   >
     <header>
       <h1>
-        title
+        figure 0
       </h1>
     </header>
     <main>
@@ -15,13 +15,17 @@ exports[`App matches snapshot 1`] = `
         class="content"
         data-testid="content"
       >
-        Content
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet hendrerit augue, quis commodo quam. Morbi non justo ut odio dictum consectetur. Vivamus dignissim metus nec ligula laoreet, ut auctor nunc rutrum. Mauris vitae nulla quam. Morbi sed sem nulla. Nulla facilisi. Nam faucibus accumsan iaculis. Suspendisse ac dapibus mi. Sed eget velit mi. Nullam blandit, leo at faucibus feugiat, leo eros viverra turpis, vel finibus mi augue et eros.Nunc nisl lacus, mollis ut fermentum et, tristique id odio. Nam tincidunt bibendum convallis. Donec laoreet sapien eu tortor tristique auctor. Donec ullamcorper malesuada lorem, eu sodales erat ornare ac. Etiam nec mauris sit amet velit molestie posuere sit amet nec elit. Curabitur id massa non libero ullamcorper porta. Phasellus sed leo eu nisi vehicula ornare. Integer rhoncus venenatis odio, at placerat turpis consectetur id. Fusce sodales accumsan feugiat. Quisque fermentum malesuada pharetra. Vestibulum dui lacus, efficitur sit amet est eget, efficitur elementum urna. Aliquam sodales a augue sit amet malesuada. Nulla semper vitae libero at semper. In sit amet posuere tortorNulla facilisi. Donec et egestas erat. In sed aliquam leo. Aenean eu mi eget libero sodales viverra eget nec tellus. Fusce egestas magna purus, nec vehicula sapien.
       </div>
       <div
         class="revolver"
         data-testid="revolver"
       >
-        revolver
+        <button
+          type="button"
+        >
+          increment index
+        </button>
       </div>
     </main>
   </div>

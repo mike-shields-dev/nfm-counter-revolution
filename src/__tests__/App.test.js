@@ -21,7 +21,7 @@ describe("App", () => {
     expect(screen.getByTestId("content")).toBeInTheDocument();
   });
 
-  it("renders a the revolver area", () => {
+  it("renders a the Revolver component", () => {
     render(<App />);
 
     expect(screen.getByTestId("revolver")).toBeInTheDocument();
