@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import Disc from "./Disc";
 
-const Revolver = ({ handleClick }) => {
+const Revolver = ({ incrementIndex, figures, index }) => {
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  const handleClick = () => {
+    incrementIndex();
+    setIsButtonDisabled(true);
+  };
   return (
     <div className="revolver" data-testid="revolver">
-      <button onClick={handleClick} type="button">
+      <Disc
+        figures={figures}
+        setIsButtonDisabled={setIsButtonDisabled}
+        index={index}
+      />
+      <button disabled={isButtonDisabled} onClick={handleClick} type="button">
         increment index
       </button>
     </div>
@@ -12,7 +24,16 @@ const Revolver = ({ handleClick }) => {
 };
 
 Revolver.propTypes = {
-  handleClick: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+  figures: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      angle: PropTypes.number,
+      text: PropTypes.arrayOf(PropTypes.string),
+    })
+  ).isRequired,
+  incrementIndex: PropTypes.func.isRequired,
 };
 
 export default Revolver;

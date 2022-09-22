@@ -6,6 +6,12 @@ exports[`Revolver matches snapshot 1`] = `
     class="revolver"
     data-testid="revolver"
   >
+    <div
+      class="disc"
+      data-testid="disc"
+    >
+      Disc
+    </div>
     <button
       type="button"
     >

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "../styles/App.css";
-import figures from "../data.json";
 import Revolver from "./Revolver";
+import Content from "./Content";
 
-const App = () => {
+const App = ({ figures }) => {
   const [index, setIndex] = useState(0);
-  const currentFigure = figures[index];
+  const figure = figures[index];
 
   const incrementIndex = () =>
     setIndex((prev) => (prev < figures.length - 1 ? prev + 1 : 0));
@@ -13,16 +14,29 @@ const App = () => {
   return (
     <div className="App">
       <header>
-        <h1>{currentFigure.title}</h1>
+        <h1>{figure.title}</h1>
       </header>
       <main>
-        <div className="content" data-testid="content">
-          {currentFigure.text}
-        </div>
-        <Revolver handleClick={incrementIndex} />
+        <Content figure={figure} />
+        <Revolver
+          incrementIndex={incrementIndex}
+          index={index}
+          figures={figures}
+        />
       </main>
     </div>
   );
+};
+
+App.propTypes = {
+  figures: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      angle: PropTypes.number,
+      text: PropTypes.arrayOf(PropTypes.string),
+    })
+  ).isRequired,
 };
 
 export default App;
