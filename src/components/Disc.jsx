@@ -25,6 +25,7 @@ const Disc = ({ figures, setIsButtonDisabled, index }) => {
       iterations: 1,
       easing: "ease",
       fill: "forwards",
+      delay: 1000,
     };
 
     const enableButton = () => setIsButtonDisabled(false);
@@ -48,7 +49,16 @@ const Disc = ({ figures, setIsButtonDisabled, index }) => {
 
   return (
     <div className="disc" data-testid="disc" ref={discRef}>
-      Disc
+      <img className="disc__layer disc__artwork" src="art.png" alt="" />
+
+      {figures.map((figure, i) => (
+        <img
+          key={figure.id}
+          className={`disc__layer disc__mask ${i === index ? "visible" : ""}`}
+          src={figure.mask_file}
+          alt=""
+        />
+      ))}
     </div>
   );
 };

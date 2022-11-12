@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/App.css";
-import Revolver from "./Revolver";
+import DiscController from "./DiscController";
 import Content from "./Content";
 
 const App = ({ figures }) => {
@@ -18,7 +18,7 @@ const App = ({ figures }) => {
       </header>
       <main>
         <Content figure={figure} />
-        <Revolver
+        <DiscController
           incrementIndex={incrementIndex}
           index={index}
           figures={figures}

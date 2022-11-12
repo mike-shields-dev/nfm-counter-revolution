@@ -1,13 +1,16 @@
 :root {
-  --bg-color: #111;
+  --color-dark: #111;
   --text-color: #ddd;
 }
 
 body {
   margin: 0;
   padding: 0;
+  border: none;
+  pointer-events: none;
+  user-select: none;
   box-sizing: border-box;
-  background-color: var(--bg-color);
+  background-color: var(--color-dark);
   color: var(--text-color);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -19,3 +22,46 @@ body {
 button:disabled {
   background: grey; 
 }
+
+button {
+  pointer-events: initial;
+}
+
+.disc {
+  position: relative;
+  transform: rotate(-180deg);
+  display: grid;
+  place-content: center;
+  width: 50vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.disc__layer {
+  grid-area: 1 / 1;
+  aspect-ratio: 1;
+  width: 124%;
+  place-self: center;
+}
+
+.disc__artwork {
+  filter: 
+    saturate(1.8) 
+    contrast(1.05) 
+    brightness(1.05)
+  ;
+  width: 123%;
+}
+
+.disc__mask {
+  opacity: 0;
+  filter: blur(0px);
+  border-radius: 50%;
+  transition: opacity 300ms;
+}
+
+.visible {
+  opacity: 0.95;
+}
+
