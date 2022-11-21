@@ -44,6 +44,7 @@ const App = ({ figures }) => {
       <main>
         <DiscController
           incrementIndex={incrementIndex}
+          setIndex={setIndex}
           index={index}
           figures={figures}
           baseAnimationDurationMs={baseAnimationDurationMs}

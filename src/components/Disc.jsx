@@ -48,8 +48,8 @@ const Disc = ({
       const startAngle = calcDiscAngle(discRef.current);
       const endAngle = figures[index].angle;
 
-      console.log({ startAngle });
-      console.log(figures.map((figure) => figure.angle));
+      baseAnimationDurationMs({ startAngle });
+      baseAnimationDurationMs(figures.map((figure) => figure.angle));
 
       const keyframes = [
         {
