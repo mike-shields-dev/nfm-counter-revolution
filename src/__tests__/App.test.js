@@ -47,20 +47,16 @@ describe("App", () => {
 
   beforeEach(() => renderApp());
 
-  it("renders a heading", () => {
-    expect(screen.getByRole("heading")).toBeInTheDocument();
-  });
-
   it("renders the Content component", () => {
     expect(screen.getByTestId("content")).toBeInTheDocument();
   });
 
-  it("renders the Revolver component", () => {
-    expect(screen.getByTestId("revolver")).toBeInTheDocument();
+  it("renders the DiscController component", () => {
+    expect(screen.getByTestId("disc-controller")).toBeInTheDocument();
   });
 });
 
-describe("Revolver component", () => {
+describe("DiscController component", () => {
   beforeEach(() => renderApp());
 
   it("button correctly updates Content component text content", () => {
@@ -73,28 +69,10 @@ describe("Revolver component", () => {
 
       if (i === validProps.figures.length - 1) {
         expect(
-          screen.queryByText(validProps.figures[0].text[0])
+          screen.queryByText(validProps.figures[0].toHaveClass("text-fade-in"))
         ).toBeInTheDocument();
       } else {
         expect(screen.queryByText(figure.text[0])).toEqual(null);
-      }
-    });
-  });
-
-  it("button correctly updates heading text content", () => {
-    const button = screen.getByRole("button");
-
-    validProps.figures.forEach((figure, i) => {
-      expect(screen.queryByText(figure.title)).toBeInTheDocument();
-
-      fireEvent.click(button);
-
-      if (i === validProps.figures.length - 1) {
-        expect(
-          screen.queryByText(validProps.figures[0].title)
-        ).toBeInTheDocument();
-      } else {
-        expect(screen.queryByText(figure.title)).toEqual(null);
       }
     });
   });

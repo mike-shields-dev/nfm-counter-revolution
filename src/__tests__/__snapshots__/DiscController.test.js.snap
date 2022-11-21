@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiscController matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="disc-controller"
+    data-testid="revolver"
+  >
+    <div
+      class="disc"
+      data-testid="disc"
+    >
+      <img
+        alt=""
+        class="disc__layer disc__artwork"
+        src="art.png"
+      />
+      <img
+        alt=""
+        class="disc__layer disc__mask mask-fade-in"
+      />
+      <img
+        alt=""
+        class="disc__layer disc__mask mask-fade-out"
+      />
+      <img
+        alt=""
+        class="disc__layer disc__mask mask-fade-out"
+      />
+      <img
+        alt=""
+        class="disc__layer disc__mask mask-fade-out"
+      />
+      <img
+        alt=""
+        class="disc__layer disc__mask mask-fade-out"
+      />
+      <img
+        alt=""
+        class="disc__layer disc__mask mask-fade-out"
+      />
+    </div>
+    <button
+      type="button"
+    >
+      increment index
+    </button>
+  </div>
+</DocumentFragment>
+`;

@@ -1,16 +1,25 @@
 :root {
   --color-dark: #111;
   --text-color: #ddd;
+  --mask-opacity: 0.75;
+  --base-animation-duration: ; /* This value is set by JS in the App Component */
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  user-select: none;
 }
 
 body {
+  font-size: 2rem;
   margin: 0;
   padding: 0;
   border: none;
   pointer-events: none;
   user-select: none;
-  box-sizing: border-box;
-  background-color: var(--color-dark);
+  background-color: #000;
   color: var(--text-color);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -19,12 +28,53 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  cursor: crosshair;
+  display: grid;
+  gap: 10rem;
+  grid-template-columns: 1fr 1fr;
+  min-width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  padding: 6rem;
+  overflow: hidden;
+}
+
 button:disabled {
-  background: grey; 
+  background: grey;
 }
 
 button {
   pointer-events: initial;
+}
+
+.disc-controller {
+  /* border: 1px solid red; */
+  position: relative;
+}
+
+.disc-controller__button {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: fixed;
+  left: calc(50% - 2rem);
+  border: 1px solid #fff;
+  background: none;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  transition: opacity calc(var(--base-animation-duration) / 3);
+}
+
+.disc-controller__button:disabled {
+  opacity: 0.25;
+  background: none;
+}
+
+.disc-controller__button svg {
+  width: 100%;
+  height: 100%;
 }
 
 .disc {
@@ -32,7 +82,7 @@ button {
   transform: rotate(-180deg);
   display: grid;
   place-content: center;
-  width: 50vw;
+  width: 80vh;
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
@@ -46,22 +96,58 @@ button {
 }
 
 .disc__artwork {
-  filter: 
-    saturate(1.8) 
-    contrast(1.05) 
-    brightness(1.05)
-  ;
+  filter: saturate(1) contrast(1.05) brightness(1.05);
   width: 123%;
 }
 
 .disc__mask {
   opacity: 0;
-  filter: blur(0px);
+  filter: blur(12px);
   border-radius: 50%;
-  transition: opacity 300ms;
 }
 
-.visible {
-  opacity: 0.95;
+.mask-fade-out {
+  animation: fade-out;
+  animation-duration: calc(var(--base-animation-duration));
+  animation-fill-mode: forwards;
 }
 
+.mask-fade-in {
+  animation: fade-in;
+  animation-delay: calc(var(--base-animation-duration) * (2 / 3));
+  animation-duration: calc(var(--base-animation-duration) / 3);
+  animation-fill-mode: forwards;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "content";
+  /* border: 1px solid red; */
+}
+
+.content__text {
+  grid-area: content;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: var(--mask-opacity);
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: var(--mask-opacity);
+  }
+}

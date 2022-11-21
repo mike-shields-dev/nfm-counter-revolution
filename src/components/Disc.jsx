@@ -1,43 +1,80 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
+import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import "../styles/index.css";
 
-const Disc = ({ figures, setIsButtonDisabled, index }) => {
+const Disc = ({
+  figures,
+  setIsButtonDisabled,
+  index,
+  baseAnimationDurationMs,
+  isAppIdle,
+}) => {
   const discRef = useRef();
 
+  const calcDiscAngle = useCallback((disc) => {
+    const discCSSTransformMatrix = getComputedStyle(disc, null).transform;
+    const transformMatrixParams = discCSSTransformMatrix
+      .slice(7, -1)
+      .split(",");
+    const [cos, sin] = transformMatrixParams;
+    const discAngleDegrees = Math.round(Math.atan2(sin, cos) * (180 / Math.PI));
+    return discAngleDegrees;
+  }, []);
+
   useEffect(() => {
-    const previousIndex = index - 1 > -1 ? index - 1 : figures.length - 1;
-    const prevFigureAngle = figures[previousIndex].angle;
-    const nextFigureAngle = figures[index].angle;
-    const startAngle = prevFigureAngle;
-    const endAngle =
-      nextFigureAngle > prevFigureAngle
-        ? nextFigureAngle - 360
-        : nextFigureAngle;
+    if (isAppIdle) {
+      const currentDiscAngle = calcDiscAngle(discRef.current);
 
-    const keyframes = [
-      { transform: `rotate(${startAngle}deg)` },
-      { transform: `rotate(${endAngle}deg)` },
-    ];
+      const keyFrames = [
+        { transform: `rotate(${currentDiscAngle}deg)` },
+        { transform: `rotate(${currentDiscAngle - 360}deg)` },
+      ];
 
-    const options = {
-      duration: 1000,
-      iterations: 1,
-      easing: "ease",
-      fill: "forwards",
-      delay: 1000,
-    };
+      const options = {
+        iterations: 100,
+        duration: baseAnimationDurationMs * 64,
+        fill: "forwards",
+      };
 
-    const enableButton = () => setIsButtonDisabled(false);
+      discRef.current.animate(keyFrames, options);
+    }
+  }, [isAppIdle, calcDiscAngle, baseAnimationDurationMs]);
+
+  useEffect(() => {
     let discAnimation;
+    const enableButton = () => setIsButtonDisabled(false);
+    if (!isAppIdle) {
+      const startAngle = calcDiscAngle(discRef.current);
+      const endAngle = figures[index].angle;
 
-    try {
-      discAnimation = discRef.current.animate(keyframes, options);
-      discAnimation.addEventListener("finish", enableButton);
-    } catch (err) {
-      // This try catch block prevents RTL tests from failing,
-      // The Web Animations API ( element.animate() ) is not supported by RTL
-      enableButton();
+      console.log({ startAngle });
+      console.log(figures.map((figure) => figure.angle));
+
+      const keyframes = [
+        {
+          transform: `rotate(${startAngle}deg)`,
+        },
+        { transform: `rotate(${endAngle}deg)` },
+      ];
+
+      const options = {
+        duration: baseAnimationDurationMs,
+        iterations: 1,
+        easing: "ease",
+        fill: "forwards",
+      };
+
+      try {
+        discAnimation = discRef.current.animate(keyframes, options);
+        discAnimation.addEventListener("finish", () => {
+          enableButton();
+        });
+      } catch (err) {
+        // This try catch block prevents RTL tests from failing,
+        // The Web Animations API ( element.animate() ) is not supported by RTL
+        enableButton();
+      }
     }
 
     return () => {
@@ -45,16 +82,24 @@ const Disc = ({ figures, setIsButtonDisabled, index }) => {
         discAnimation.removeEventListener("finish", enableButton);
       }
     };
-  }, [figures, index, setIsButtonDisabled]);
+  }, [
+    figures,
+    index,
+    setIsButtonDisabled,
+    baseAnimationDurationMs,
+    calcDiscAngle,
+    isAppIdle,
+  ]);
 
   return (
     <div className="disc" data-testid="disc" ref={discRef}>
       <img className="disc__layer disc__artwork" src="art.png" alt="" />
-
       {figures.map((figure, i) => (
-        <img
+        <motion.img
           key={figure.id}
-          className={`disc__layer disc__mask ${i === index ? "visible" : ""}`}
+          className={`disc__layer disc__mask ${
+            !isAppIdle && i === index ? "mask-fade-in" : "mask-fade-out"
+          }`}
           src={figure.mask_file}
           alt=""
         />
@@ -74,6 +119,8 @@ Disc.propTypes = {
   ).isRequired,
   setIsButtonDisabled: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
+  baseAnimationDurationMs: PropTypes.number.isRequired,
+  isAppIdle: PropTypes.bool.isRequired,
 };
 
 export default Disc;

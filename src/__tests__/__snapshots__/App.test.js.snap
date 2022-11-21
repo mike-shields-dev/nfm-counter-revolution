@@ -5,40 +5,91 @@ exports[`App matches snapshot 1`] = `
   <div
     class="App"
   >
-    <header>
-      <h1>
-        figure 0
-      </h1>
-    </header>
     <main>
       <div
-        data-testid="content"
-      >
-        <p>
-          Figure 0 Paragraph 1
-        </p>
-        <p>
-          Figure 0 Paragraph 2
-        </p>
-        <p>
-          Figure 0 Paragraph 3
-        </p>
-      </div>
-      <div
-        class="revolver"
+        class="disc-controller"
         data-testid="revolver"
       >
         <div
           class="disc"
           data-testid="disc"
         >
-          Disc
+          <img
+            alt=""
+            class="disc__layer disc__artwork"
+            src="art.png"
+          />
+          <img
+            alt=""
+            class="disc__layer disc__mask mask-fade-in"
+          />
+          <img
+            alt=""
+            class="disc__layer disc__mask mask-fade-out"
+          />
+          <img
+            alt=""
+            class="disc__layer disc__mask mask-fade-out"
+          />
         </div>
         <button
           type="button"
         >
           increment index
         </button>
+      </div>
+      <div
+        class="content"
+        data-testid="content"
+      >
+        <section
+          class="text-fade-in"
+        >
+          <p>
+            Figure 0 Paragraph 1
+          </p>
+          <br />
+          <p>
+            Figure 0 Paragraph 2
+          </p>
+          <br />
+          <p>
+            Figure 0 Paragraph 3
+          </p>
+          <br />
+        </section>
+        <section
+          class="text-fade-out"
+        >
+          <p>
+            Figure 1 Paragraph 1
+          </p>
+          <br />
+          <p>
+            Figure 1 Paragraph 2
+          </p>
+          <br />
+          <p>
+            Figure 1 Paragraph 3
+          </p>
+          <br />
+        </section>
+        <section
+          class="text-fade-out"
+        >
+          <p>
+            Figure 2 Paragraph 1
+          </p>
+          <br />
+          <p>
+            Figure 2 Paragraph 2
+          </p>
+          <br />
+          <p>
+            Figure 2 Paragraph 3
+          </p>
+          <br />
+        </section>
       </div>
     </main>
   </div>
