@@ -6,90 +6,42 @@ exports[`App matches snapshot 1`] = `
     class="App"
   >
     <main>
-      <div
-        class="disc-controller"
-        data-testid="revolver"
+      <svg
+        class="disc"
+        data-testid="disc"
       >
-        <div
-          class="disc"
-          data-testid="disc"
-        >
-          <img
-            alt=""
-            class="disc__layer disc__artwork"
-            src="art.png"
-          />
-          <img
-            alt=""
-            class="disc__layer disc__mask mask-fade-in"
-          />
-          <img
-            alt=""
-            class="disc__layer disc__mask mask-fade-out"
-          />
-          <img
-            alt=""
-            class="disc__layer disc__mask mask-fade-out"
-          />
-        </div>
-        <button
-          type="button"
-        >
-          increment index
-        </button>
-      </div>
+        <image
+          href="/art.png"
+        />
+        <image
+          href="mask0.png"
+        />
+        <image
+          href="mask1.png"
+        />
+        <image
+          href="mask2.png"
+        />
+        <image
+          href="mask3.png"
+        />
+        <image
+          href="mask4.png"
+        />
+        <image
+          href="mask5.png"
+        />
+      </svg>
       <div
         class="content"
         data-testid="content"
       >
-        <section
-          class="text-fade-in"
+        <div
+          class="content__text"
+          style="opacity: 0;"
         >
-          <p>
-            Figure 0 Paragraph 1
-          </p>
-          <br />
-          <p>
-            Figure 0 Paragraph 2
-          </p>
-          <br />
-          <p>
-            Figure 0 Paragraph 3
-          </p>
-          <br />
-        </section>
-        <section
-          class="text-fade-out"
-        >
-          <p>
-            Figure 1 Paragraph 1
-          </p>
-          <br />
-          <p>
-            Figure 1 Paragraph 2
-          </p>
-          <br />
-          <p>
-            Figure 1 Paragraph 3
-          </p>
-          <br />
-        </section>
-        <section
-          class="text-fade-out"
-        >
-          <p>
-            Figure 2 Paragraph 1
-          </p>
-          <br />
-          <p>
-            Figure 2 Paragraph 2
-          </p>
-          <br />
-          <p>
-            Figure 2 Paragraph 3
-          </p>
-          <br />
-        </section>
+          Call to Action
+        </div>
       </div>
     </main>
   </div>

@@ -4,43 +4,59 @@
             "id": 0,
             "title": "figure 0",
             "angle": 0,
-            "mask_file": "mask0.png",
-            "text": ["figure 0" ]
+            "maskImageFile": "mask0.png",
+            "text": [
+                "This section shows Djemilia Bouiard in a 'reversed' image of ‘Liberty Leading the People’ painting by Eugene Delacroix's 1830. She is depicted carrying an Algerian flag, rife and a handbag. She is also accompanied by a child, who is carrying guns. They are portrayed walking past a deceased French soldier. Djemilia Bouiard joined the National Liberation Front, in the war for Algerian Independence against the French, in 1954.",
+                "Behind her are two different artists representations of the deceased figure of Christ. Andrea Mantegna's ‘Lamentation of Christ’, and Annibale Carracci's version in an alternative position. Algiers port and Martyr's Monument can be seen in the background."
+            ]
         },
         {
             "id": 1,
             "title": "figure 1",
-            "angle": -70,
-            "mask_file": "mask1.png",
-            "text": ["figure 1" ]
+            "angle": 70,
+            "maskImageFile": "mask1.png",
+            "text": [
+                "This section shows young women footballers of the Algerian National team. They are striving for independence of expression, against traditional gender stereotyping and strict Islamic laws."
+            ]
         },
         {
             "id": 2,
             "title": "figure 2",
-            "angle": -120,
-            "mask_file": "mask2.png",
-            "text": ["figure 2" ]
+            "angle": 120,
+            "maskImageFile": "mask2.png",
+            "text": [
+                "This background section shows an Oil Refinery and the emergence of Tauregs from the Southwest desert. Who are also involved in territorial disputes."
+            ]
         },
         {
             "id": 3,
             "title": "figure 3",
-            "angle": -180,
-            "mask_file": "mask3.png",
-            "text": ["figure 3" ]
+            "angle": 180,
+            "maskImageFile": "mask3.png",
+            "text": [
+                "This section shows an Amazigh bride, but as a widow of her lost Country, or region. She carries a stake and the head of the Freedom Fighter Abd el-Kader, chief de guerre, 1832-1847. She stands directly opposite Djemilia Bouiard, as they echo repeated similar causes.",
+                "Behind her are two children playing and feeding from an Algerian wolf. This is suggestive of their native ties to their demographic region. There is also a young modern Caucasian woman facing the desert."
+            ]
         },
         {
             "id": 4,
             "title": "figure 4",
-            "angle": -240,
-            "mask_file": "mask4.png",
-            "text": ["figure 4" ]
+            "angle": 240,
+            "maskImageFile": "mask4.png",
+            "text": [
+                "This section shows Rachid Mekhloufi, the high-profile Algerian footballer, who had played for the French National team. He went on to defect along with nine other players, to set up a team that fought for an Independent Algeria. They would have their national flag wherever they could play international friendly football matches.",
+                "Behind him stands Abdelhamid Bouchouk, and Zinedine Zidane with Karim Benzima. Both of Amazigh heritage, but they also play, played for the French National team."
+            ]
         },
         {
             "id": 5,
             "title": "figure 5",
-            "angle": 90,
-            "mask_file": "mask5.png",
-            "text": ["figure 5" ]
+            "angle": 270,
+            "maskImageFile": "mask5.png",
+            "text": [
+                "This section shows references to the Algerian Civil War 1991, between the Algerian Government and various Islamic Rebel Groups. In its foreground, there is a hungry child, holding a piece of bread. The child faces a football at the centre of the painting. The sphere represents a common interest for sustainability.", 
+                "Behind the child, a muslim man is kneeling and praying towards the Football. This is in reference to much of the Sacred Geometry in Islam. Echoing the importance of this 'form without a face'."
+            ]
         }
     ]
 }

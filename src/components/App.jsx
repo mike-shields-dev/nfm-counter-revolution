@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import "../styles/App.css";
 import Content from "./Content";
-import DiscController from "./DiscController";
+import Disc from "./Disc";
 
 const App = ({ figures }) => {
-  const baseAnimationDurationMs = 1200;
   const appIdleTimerDurationMillis = 5000;
-  const [index, setIndex] = useState(0);
-  const [isAppIdle, setIsAppIdle] = useState(true);
   const [appIdleTimer, setAppIdleTimer] = useState();
+  const baseAnimationDurationMillis = 2400;
+  const [index, setIndex] = useState(0);
+  const [isAppIdle, setIsAppIdle] = useState(false);
 
   const incrementIndex = () =>
     setIndex((prev) => (prev < figures.length - 1 ? prev + 1 : 0));
@@ -23,7 +22,7 @@ const App = ({ figures }) => {
     const doc = document.documentElement;
     doc.style.setProperty(
       "--base-animation-duration",
-      `${baseAnimationDurationMs}ms`
+      `${baseAnimationDurationMillis}ms`
     );
   }, []);
 
@@ -42,20 +41,24 @@ const App = ({ figures }) => {
   return (
     <div className="App">
       <main>
-        <DiscController
-          incrementIndex={incrementIndex}
-          setIndex={setIndex}
-          index={index}
-          figures={figures}
-          baseAnimationDurationMs={baseAnimationDurationMs}
-          startAppIdleTimer={startAppIdleTimer}
-          isAppIdle={isAppIdle}
+        <Disc
+          {...{
+            baseAnimationDurationMillis,
+            figures,
+            incrementIndex,
+            index,
+            isAppIdle,
+            startAppIdleTimer,
+            setIndex,
+          }}
         />
         <Content
-          figures={figures}
-          index={index}
-          baseAnimationDurationMs={baseAnimationDurationMs}
-          isAppIdle={isAppIdle}
+          {...{
+            figures,
+            index,
+            baseAnimationDurationMillis,
+            isAppIdle,
+          }}
         />
       </main>
     </div>

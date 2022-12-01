@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "../components/App";
 
 const validProps = {
@@ -51,29 +51,7 @@ describe("App", () => {
     expect(screen.getByTestId("content")).toBeInTheDocument();
   });
 
-  it("renders the DiscController component", () => {
-    expect(screen.getByTestId("disc-controller")).toBeInTheDocument();
-  });
-});
-
-describe("DiscController component", () => {
-  beforeEach(() => renderApp());
-
-  it("button correctly updates Content component text content", () => {
-    const button = screen.getByRole("button");
-
-    validProps.figures.forEach((figure, i) => {
-      expect(screen.queryByText(figure.text[0])).toBeInTheDocument();
-
-      fireEvent.click(button);
-
-      if (i === validProps.figures.length - 1) {
-        expect(
-          screen.queryByText(validProps.figures[0].toHaveClass("text-fade-in"))
-        ).toBeInTheDocument();
-      } else {
-        expect(screen.queryByText(figure.text[0])).toEqual(null);
-      }
-    });
+  it("renders the disc component", () => {
+    expect(screen.getByTestId("disc")).toBeInTheDocument();
   });
 });

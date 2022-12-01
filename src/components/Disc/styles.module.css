@@ -1,0 +1,53 @@
+:root {
+  --disc-mask-opacity: 0.65;
+}
+
+.disc {
+  aspect-ratio: 1;
+  background: url("/public/artwork_no_border_1080_lossy.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 108%;
+  clip-path: circle();
+  pointer-events: painted;
+  width: 80vh;
+}
+
+.disc__mask {
+  filter: blur(16px);
+  height: 1051;
+  opacity: 0;
+  overflow: visible;
+  pointer-events: none;
+  width: 1050;
+}
+
+.fadeOut {
+  animation: fadeOut;
+  animation-duration: calc(var(--base-animation-duration));
+  animation-fill-mode: forwards;
+}
+
+.fadeIn {
+  animation: fadeIn;
+  animation-delay: calc(var(--base-animation-duration) * (2 / 3));
+  animation-duration: calc(var(--base-animation-duration) / 3);
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: var(--disc-mask-opacity);
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: var(--disc-mask-opacity);
+  }
+}
