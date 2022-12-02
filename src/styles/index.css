@@ -12,6 +12,10 @@
   user-select: none;
 }
 
+html {
+  touch-action: none;
+}
+
 body {
   background-color: #111;
   border: none;

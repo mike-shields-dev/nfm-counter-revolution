@@ -16,7 +16,8 @@
             "angle": 70,
             "maskImageFile": "mask1.png",
             "text": [
-                "This section shows young women footballers of the Algerian National team. They are striving for independence of expression, against traditional gender stereotyping and strict Islamic laws."
+                "This section shows references to the Algerian Civil War 1991, between the Algerian Government and various Islamic Rebel Groups. In its foreground, there is a hungry child, holding a piece of bread. The child faces a football at the centre of the painting. The sphere represents a common interest for sustainability.",
+                "Behind the child, a muslim man is kneeling and praying towards the Football. This is in reference to much of the Sacred Geometry in Islam. Echoing the importance of this 'form without a face'."
             ]
         },
         {
@@ -25,7 +26,8 @@
             "angle": 120,
             "maskImageFile": "mask2.png",
             "text": [
-                "This background section shows an Oil Refinery and the emergence of Tauregs from the Southwest desert. Who are also involved in territorial disputes."
+                "This section shows Rachid Mekhloufi, the high-profile Algerian footballer, who had played for the French National team. He went on to defect along with nine other players, to set up a team that fought for an Independent Algeria. They would have their national flag wherever they could play international friendly football matches.",
+                "Behind him stands Abdelhamid Bouchouk, and Zinedine Zidane with Karim Benzima. Both of Amazigh heritage, but they also play, played for the French National team."
             ]
         },
         {
@@ -44,8 +46,7 @@
             "angle": 240,
             "maskImageFile": "mask4.png",
             "text": [
-                "This section shows Rachid Mekhloufi, the high-profile Algerian footballer, who had played for the French National team. He went on to defect along with nine other players, to set up a team that fought for an Independent Algeria. They would have their national flag wherever they could play international friendly football matches.",
-                "Behind him stands Abdelhamid Bouchouk, and Zinedine Zidane with Karim Benzima. Both of Amazigh heritage, but they also play, played for the French National team."
+                "This section shows young women footballers of the Algerian National team. They are striving for independence of expression, against traditional gender stereotyping and strict Islamic laws."
             ]
         },
         {
@@ -54,8 +55,7 @@
             "angle": 270,
             "maskImageFile": "mask5.png",
             "text": [
-                "This section shows references to the Algerian Civil War 1991, between the Algerian Government and various Islamic Rebel Groups. In its foreground, there is a hungry child, holding a piece of bread. The child faces a football at the centre of the painting. The sphere represents a common interest for sustainability.", 
-                "Behind the child, a muslim man is kneeling and praying towards the Football. This is in reference to much of the Sacred Geometry in Islam. Echoing the importance of this 'form without a face'."
+                "This background section shows an Oil Refinery and the emergence of Tauregs from the Southwest desert. Who are also involved in territorial disputes."
             ]
         }
     ]

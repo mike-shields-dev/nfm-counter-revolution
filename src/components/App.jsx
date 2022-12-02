@@ -4,14 +4,11 @@ import Content from "./Content";
 import Disc from "./Disc";
 
 const App = ({ figures }) => {
-  const appIdleTimerDurationMillis = 5000;
+  const appIdleTimerDurationMillis = 180000;
   const [appIdleTimer, setAppIdleTimer] = useState();
-  const baseAnimationDurationMillis = 2400;
+  const baseAnimationDurationMillis = 1200;
   const [index, setIndex] = useState(0);
   const [isAppIdle, setIsAppIdle] = useState(false);
-
-  const incrementIndex = () =>
-    setIndex((prev) => (prev < figures.length - 1 ? prev + 1 : 0));
 
   const startAppIdleTimer = () => {
     setIsAppIdle(false);
@@ -45,7 +42,6 @@ const App = ({ figures }) => {
           {...{
             baseAnimationDurationMillis,
             figures,
-            incrementIndex,
             index,
             isAppIdle,
             startAppIdleTimer,
@@ -68,10 +64,10 @@ const App = ({ figures }) => {
 App.propTypes = {
   figures: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
-      title: PropTypes.string,
       angle: PropTypes.number,
+      id: PropTypes.number,
       text: PropTypes.arrayOf(PropTypes.string),
+      title: PropTypes.string,
     })
   ).isRequired,
 };

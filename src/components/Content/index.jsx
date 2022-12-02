@@ -30,7 +30,7 @@ const Content = ({
       <AnimatePresence>
         {isAppIdle && (
           <motion.div className={css.content__text} {...fadeAnim}>
-            <p>Call to Action</p>
+            <p>Touch the artwork for details...</p>
           </motion.div>
         )}
       </AnimatePresence>

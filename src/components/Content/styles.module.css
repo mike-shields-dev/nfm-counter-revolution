@@ -6,6 +6,7 @@
 }
 
 .content__text {
+  text-align: center;
   display: grid;
   grid-area: 1 / 1 / -1 / -1;
   width: 100%;

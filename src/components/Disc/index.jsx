@@ -8,8 +8,8 @@ const Disc = ({
   figures,
   index,
   isAppIdle,
-  // startAppIdleTimer,
-  // setIndex,
+  startAppIdleTimer,
+  setIndex,
 }) => {
   const discRef = useRef();
   const [isDiscDisabled, setDiscDisabled] = useState(false);
@@ -17,16 +17,17 @@ const Disc = ({
   const [endAngle, setEndAngle] = useState(0);
   const [animationDuration, setAnimationDuration] = useState(0);
   const [animationIterations, setAnimationIterations] = useState(Infinity);
+  const maxFigureAngle = figures[figures.length - 1].angle;
 
   useEffect(() => {
     const discAngle = getDiscAngle(discRef.current);
-    setStartAngle(discAngle);
     if (isAppIdle) {
+      setStartAngle(discAngle);
       setEndAngle(discAngle - 360);
-      setAnimationDuration(baseAnimationDurationMillis * 20);
+      setAnimationDuration(baseAnimationDurationMillis * 60);
       setAnimationIterations(Infinity);
     }
-  }, [isAppIdle, baseAnimationDurationMillis]);
+  }, [isAppIdle, baseAnimationDurationMillis, maxFigureAngle]);
 
   useEffect(() => {
     let animation = null;
@@ -39,6 +40,7 @@ const Disc = ({
         iterations: animationIterations,
         duration: animationDuration,
         fill: "forwards",
+        easing: `${isAppIdle ? "linear" : "ease"}`,
       }
     );
     animation.addEventListener("finish", () => {
@@ -48,42 +50,46 @@ const Disc = ({
       animation.removeEventListener("finish", () => {
         setDiscDisabled(false);
       });
-  }, [startAngle, endAngle, animationDuration, animationIterations]);
+  }, [startAngle, endAngle, animationDuration, animationIterations, isAppIdle]);
 
   const handleClick = (e) => {
     const disc = e.target;
-    const discAngle = getDiscAngle(disc);
+    let discAngle = getDiscAngle(disc);
 
     console.log({ discAngle });
-    // const diffAngle = 360 - discAngle;
+    const diffAngle = -discAngle;
 
-    // let nextIndex = figures.findIndex((fig) => fig.angle > diffAngle);
-    // nextIndex = nextIndex < 0 ? 0 : nextIndex;
-    // let nextFigureAngle = figures[nextIndex].angle;
+    let nextIndex = figures.findIndex((fig) => fig.angle > diffAngle);
+    nextIndex = nextIndex < 0 ? 0 : nextIndex;
+    const nextFigureAngle = figures[nextIndex].angle;
 
-    // const newDiscAngle = discAngle - (nextFigureAngle - diffAngle);
+    const newDiscAngle = discAngle - (nextFigureAngle - diffAngle);
 
-    // if (index === figures.length - 1) {
+    // if (index === figures.length - 1 || index === 0) {
     //   console.log("last index");
-    //   nextFigureAngle += 360;
+    //   // nextFigureAngle += 360;
+    //   discAngle += 360;
     // }
 
-    // startAppIdleTimer();
-    // setDiscDisabled(true);
-    // setStartAngle(discAngle);
-    // setEndAngle(newDiscAngle);
-    // setIndex(nextIndex);
-    // setAnimationDuration(baseAnimationDurationMillis);
-    // setAnimationIterations(1);
+    if (-discAngle >= maxFigureAngle) {
+      discAngle += 360;
+    }
 
-    // console.table({
-    //   discAngle,
-    //   diffAngle,
-    //   nextIndex,
-    //   nextFigureAngle,
-    //   newDiscAngle,
-    //   // rotationAmount,
-    // });
+    startAppIdleTimer();
+    setDiscDisabled(true);
+    setStartAngle(discAngle);
+    setEndAngle(newDiscAngle);
+    setIndex(nextIndex);
+    setAnimationDuration(baseAnimationDurationMillis);
+    setAnimationIterations(1);
+
+    console.table({
+      discAngle,
+      diffAngle,
+      nextIndex,
+      nextFigureAngle,
+      newDiscAngle,
+    });
   };
 
   return (
@@ -119,8 +125,8 @@ Disc.propTypes = {
   ).isRequired,
   index: PropTypes.number.isRequired,
   isAppIdle: PropTypes.bool.isRequired,
-  // startAppIdleTimer: PropTypes.func.isRequired,
-  // setIndex: PropTypes.func.isRequired,
+  startAppIdleTimer: PropTypes.func.isRequired,
+  setIndex: PropTypes.func.isRequired,
 };
 
 export default Disc;
