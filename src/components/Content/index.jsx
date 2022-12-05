@@ -1,15 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
+import { IndexContext } from "../../context/IndexContext";
 import css from "./styles.module.css";
 
-const Content = ({
-  figures,
-  index,
-  baseAnimationDurationMillis,
-  isAppIdle,
-}) => {
+const Content = ({ figures, baseAnimationDurationMillis, isAppIdle }) => {
+  const { index } = useContext(IndexContext);
+
   const fadeAnim = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
@@ -61,7 +59,6 @@ Content.propTypes = {
       text: PropTypes.arrayOf(PropTypes.string),
     })
   ).isRequired,
-  index: PropTypes.number.isRequired,
   isAppIdle: PropTypes.bool.isRequired,
 };
 

@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import PropTypes from "prop-types";
+import { IndexContext } from "../../context/IndexContext";
 import getDiscAngle from "../../utils/getDiscAngle";
 import css from "./styles.module.css";
 
 const Disc = ({
   baseAnimationDurationMillis,
   figures,
-  index,
   isAppIdle,
   startAppIdleTimer,
-  setIndex,
 }) => {
+  const { index, setIndex } = useContext(IndexContext);
   const discRef = useRef();
   const [isDiscDisabled, setDiscDisabled] = useState(false);
   const [startAngle, setStartAngle] = useState(0);
@@ -18,6 +18,8 @@ const Disc = ({
   const [animationDuration, setAnimationDuration] = useState(0);
   const [animationIterations, setAnimationIterations] = useState(Infinity);
   const maxFigureAngle = figures[figures.length - 1].angle;
+
+  console.log({ index });
 
   useEffect(() => {
     const discAngle = getDiscAngle(discRef.current);
@@ -106,10 +108,8 @@ Disc.propTypes = {
       title: PropTypes.string,
     })
   ).isRequired,
-  index: PropTypes.number.isRequired,
   isAppIdle: PropTypes.bool.isRequired,
   startAppIdleTimer: PropTypes.func.isRequired,
-  setIndex: PropTypes.func.isRequired,
 };
 
 export default Disc;

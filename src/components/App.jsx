@@ -7,7 +7,6 @@ const App = ({ figures }) => {
   const appIdleTimerDurationMillis = 180000;
   const [appIdleTimer, setAppIdleTimer] = useState();
   const baseAnimationDurationMillis = 1200;
-  const [index, setIndex] = useState(0);
   const [isAppIdle, setIsAppIdle] = useState(true);
 
   const startAppIdleTimer = () => {
@@ -42,16 +41,13 @@ const App = ({ figures }) => {
           {...{
             baseAnimationDurationMillis,
             figures,
-            index,
             isAppIdle,
             startAppIdleTimer,
-            setIndex,
           }}
         />
         <Content
           {...{
             figures,
-            index,
             baseAnimationDurationMillis,
             isAppIdle,
           }}
