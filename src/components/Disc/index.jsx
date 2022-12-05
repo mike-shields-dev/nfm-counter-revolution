@@ -55,21 +55,12 @@ const Disc = ({
   const handleClick = (e) => {
     const disc = e.target;
     let discAngle = getDiscAngle(disc);
-
-    console.log({ discAngle });
     const diffAngle = -discAngle;
 
     let nextIndex = figures.findIndex((fig) => fig.angle > diffAngle);
     nextIndex = nextIndex < 0 ? 0 : nextIndex;
     const nextFigureAngle = figures[nextIndex].angle;
-
     const newDiscAngle = discAngle - (nextFigureAngle - diffAngle);
-
-    // if (index === figures.length - 1 || index === 0) {
-    //   console.log("last index");
-    //   // nextFigureAngle += 360;
-    //   discAngle += 360;
-    // }
 
     if (-discAngle >= maxFigureAngle) {
       discAngle += 360;
@@ -82,14 +73,6 @@ const Disc = ({
     setIndex(nextIndex);
     setAnimationDuration(baseAnimationDurationMillis);
     setAnimationIterations(1);
-
-    console.table({
-      discAngle,
-      diffAngle,
-      nextIndex,
-      nextFigureAngle,
-      newDiscAngle,
-    });
   };
 
   return (
