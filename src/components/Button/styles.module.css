@@ -1,0 +1,28 @@
+.Button__container {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  padding: 1rem;
+}
+
+.Button {
+  height: 9rem;
+  z-index: 1000;
+  aspect-ratio: 1;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("/public/button.svg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  clip-path: circle();
+  pointer-events: initial;
+  transition: all calc(var(--base-animation-duration) / 3);
+}
+
+.Button:disabled {
+  opacity: 0.25;
+  filter: grayscale(1);
+}

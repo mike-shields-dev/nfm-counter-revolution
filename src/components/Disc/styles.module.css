@@ -7,7 +7,7 @@
   background: url("/public/artwork_no_border_1080_lossy.webp");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 108%;
+  background-size: 108.5%;
   clip-path: circle();
   pointer-events: painted;
   width: 80vh;

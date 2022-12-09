@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
-import { IndexContext } from "../../context/IndexContext";
+import { DiscContext } from "../../context/DiscContext";
 import css from "./styles.module.css";
 
 const Content = ({ figures, baseAnimationDurationMillis, isAppIdle }) => {
-  const { index } = useContext(IndexContext);
+  const { index } = useContext(DiscContext);
 
   const fadeAnim = {
     initial: { opacity: 0 },

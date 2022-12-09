@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { IndexProvider } from "./context/IndexContext";
+import { DiscProvider } from "./context/DiscContext";
 import "./styles/index.css";
 import data from "./data.json";
 import App from "./components/App";
@@ -8,8 +8,8 @@ import App from "./components/App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <IndexProvider>
+    <DiscProvider>
       <App figures={data.figures} />
-    </IndexProvider>
+    </DiscProvider>
   </React.StrictMode>
 );
