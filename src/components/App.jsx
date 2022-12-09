@@ -4,7 +4,7 @@ import Content from "./Content";
 import Disc from "./Disc";
 import Button from "./Button";
 import { DiscContext } from "../context/DiscContext";
-import getDiscAngle from "../utils/getDiscAngle";
+import getRotationDeg from "../utils/getRotationDeg";
 import data from "../data.json";
 
 const { figures } = data;
@@ -15,78 +15,76 @@ const App = () => {
   const [discAnimIterations, setDiscAnimIterations] = useState(Infinity);
   const [discAnimStartAngle, setDiscAnimStartAngle] = useState(0);
   const [discAnimEndAngle, setDiscAnimEndAngle] = useState(0);
-  const [isDisabled, setIsDisabled] = useState(false);
-  const appIdleTimerDurationMillis = 180000;
-  const [appIdleTimer, setAppIdleTimer] = useState();
-  const baseAnimationDurationMillis = 1200;
-  const [isAppIdle, setIsAppIdle] = useState(true);
+  const [isClickDisabled, setClickDisabled] = useState(false);
+  const idleTimerDuration = 2000;
+  const [idleTimer, setIdleTimer] = useState();
+  const baseAnimDurationMs = 1200;
+  const [isIdle, setIsIdle] = useState(true);
   const maxFigureAngle = figures[figures.length - 1].angle;
 
-  const startAppIdleTimer = () => {
-    setIsAppIdle(false);
-    setAppIdleTimer(clearTimeout(appIdleTimer));
+  const resetIdleTimer = () => {
+    setIsIdle(false);
+    setIdleTimer(clearTimeout(idleTimer));
   };
 
+  const enableTouch = () => setClickDisabled(false);
+
   const handleClick = () => {
-    const disc = discRef.current;
-    let discAngle = getDiscAngle(disc);
-    const diffAngle = -discAngle;
-    let nextIndex = figures.findIndex((fig) => fig.angle > diffAngle);
-    nextIndex = nextIndex < 0 ? 0 : nextIndex;
-    const nextFigureAngle = figures[nextIndex].angle;
-    const newDiscAngle = discAngle - (nextFigureAngle - diffAngle);
-    if (-discAngle >= maxFigureAngle) {
-      discAngle += 360;
-    }
-    startAppIdleTimer();
-    setIsDisabled(true);
-    setDiscAnimStartAngle(discAngle);
-    setDiscAnimEndAngle(newDiscAngle);
-    setIndex(nextIndex);
-    setDiscAnimDuration(baseAnimationDurationMillis);
+    const currDiscAngle = getRotationDeg(discRef.current);
+    const startAnimAngle =
+      -currDiscAngle >= maxFigureAngle ? currDiscAngle + 360 : currDiscAngle;
+    const foundIndex = figures.findIndex((fig) => fig.angle > -startAnimAngle);
+    const nextIndex = foundIndex < 0 ? 0 : foundIndex;
+    const endAnimAngle = -figures[nextIndex].angle;
+
+    setDiscAnimStartAngle(startAnimAngle);
+    setDiscAnimEndAngle(endAnimAngle);
+    setDiscAnimDuration(baseAnimDurationMs);
     setDiscAnimIterations(1);
+    setIndex(nextIndex);
+    setClickDisabled(true);
+    resetIdleTimer();
   };
 
   useEffect(() => {
-    const doc = document.documentElement;
-    doc.style.setProperty(
+    const docEl = document.documentElement;
+    docEl.style.setProperty(
       "--base-animation-duration",
-      `${baseAnimationDurationMillis}ms`
+      `${baseAnimDurationMs}ms`
     );
   }, []);
 
   useEffect(() => {
-    const discAngle = getDiscAngle(discRef.current);
-    if (isAppIdle) {
-      setDiscAnimStartAngle(discAngle);
-      setDiscAnimEndAngle(discAngle - 360);
-      setDiscAnimDuration(baseAnimationDurationMillis * 60);
+    if (isIdle) {
+      const currDiscAngle = getRotationDeg(discRef.current);
+      setDiscAnimDuration(baseAnimDurationMs * 60);
+      setDiscAnimEndAngle(currDiscAngle - 360);
+      setDiscAnimStartAngle(currDiscAngle);
       setDiscAnimIterations(Infinity);
     }
   }, [
-    isAppIdle,
-    baseAnimationDurationMillis,
-    maxFigureAngle,
+    baseAnimDurationMs,
     discRef,
-    setDiscAnimStartAngle,
+    isIdle,
+    maxFigureAngle,
     setDiscAnimEndAngle,
+    setDiscAnimStartAngle,
   ]);
 
   useEffect(() => {
-    if (!(isAppIdle || appIdleTimer)) {
-      setAppIdleTimer(
+    if (!(isIdle || idleTimer)) {
+      setIdleTimer(
         setTimeout(() => {
-          setIsAppIdle(true);
-          setAppIdleTimer(clearTimeout(appIdleTimer));
-        }, appIdleTimerDurationMillis)
+          setIsIdle(true);
+          setIdleTimer(clearTimeout(idleTimer));
+        }, idleTimerDuration)
       );
     }
-    return () => clearTimeout(appIdleTimer);
-  }, [isAppIdle, appIdleTimer]);
+    return () => clearTimeout(idleTimer);
+  }, [isIdle, idleTimer]);
 
   useEffect(() => {
-    let animation = null;
-    animation = discRef.current.animate(
+    const discAnim = discRef.current.animate(
       [
         { transform: `rotate(${discAnimStartAngle}deg)` },
         { transform: `rotate(${discAnimEndAngle}deg)` },
@@ -95,22 +93,18 @@ const App = () => {
         iterations: discAnimIterations,
         duration: discAnimDuration,
         fill: "forwards",
-        easing: `${isAppIdle ? "linear" : "ease"}`,
+        easing: `${isIdle ? "linear" : "ease"}`,
       }
     );
-    animation.addEventListener("finish", () => {
-      setIsDisabled(false);
-    });
-    return () =>
-      animation.removeEventListener("finish", () => {
-        setIsDisabled(false);
-      });
+
+    discAnim.addEventListener("finish", enableTouch);
+    return () => discAnim.removeEventListener("finish", enableTouch);
   }, [
     discAnimStartAngle,
     discAnimEndAngle,
     discAnimDuration,
     discAnimIterations,
-    isAppIdle,
+    isIdle,
     discRef,
   ]);
 
@@ -119,22 +113,22 @@ const App = () => {
       <main>
         <Disc
           {...{
-            baseAnimationDurationMillis,
+            baseAnimDurationMs,
             figures,
-            isAppIdle,
-            isDisabled,
-            startAppIdleTimer,
+            isIdle,
+            isClickDisabled,
+            resetIdleTimer,
           }}
         />
         <Content
           {...{
+            baseAnimDurationMs,
             figures,
-            baseAnimationDurationMillis,
-            isAppIdle,
+            isIdle,
           }}
         />
       </main>
-      <Button {...{ handleClick, isDisabled }} />
+      <Button {...{ handleClick, isClickDisabled }} />
     </div>
   );
 };

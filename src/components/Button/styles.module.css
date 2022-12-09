@@ -9,10 +9,9 @@
 
 .Button {
   height: 9rem;
-  z-index: 1000;
   aspect-ratio: 1;
   border: none;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #00000000;
   background-image: url("/public/button.svg");
   background-size: 100%;
   background-position: center;

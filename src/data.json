@@ -1,10 +1,11 @@
 {
+    "intro": "Touch the artwork for details",
     "figures": [
         {
             "id": 0,
             "title": "figure 0",
             "angle": 0,
-            "maskImageFile": "mask0.png",
+            "maskImageFile": "mask0.webp",
             "text": [
                 "This section shows Djamila Bouhired in a 'reversed' image of ‘Liberty Leading the People’ painting by Eugene Delacroix. She\u00A0is depicted carrying an Algerian flag, rifle and a handbag. She\u00A0is also accompanied by a child, who is carrying guns. They are portrayed walking past a deceased French soldier. In\u00A01954, Djamila Bouhired joined the National Liberation Front in the war for Algerian Independence against the French.",
                 "Behind her are two different artists' representations of the deceased figure of Christ. Andrea Mantegna's ‘Lamentation of Christ’, and Annibale Carracci's 'Corpse of Christ' in an alternative reversed position. The port of Algiers and the Martyrs' Monument can also be seen in the background."
@@ -14,7 +15,7 @@
             "id": 1,
             "title": "figure 1",
             "angle": 70,
-            "maskImageFile": "mask1.png",
+            "maskImageFile": "mask1.webp",
             "text": [
                 "This section shows references to the 1991 Algerian Civil War, between the Algerian Government and various Islamic rebel groups. In its foreground, there is a hungry child, holding a piece of bread. The child faces a football at the centre of the\u00A0painting. The sphere represents a common interest for\u00A0sustainability.",
                 "Behind the child, a muslim man is kneeling and praying towards the Football."
@@ -24,7 +25,7 @@
             "id": 2,
             "title": "figure 2",
             "angle": 120,
-            "maskImageFile": "mask2.png",
+            "maskImageFile": "mask2.webp",
             "text": [
                 "This section shows Rachid Mekhloufi, the high-profile Algerian footballer, who had played for the French National team. He\u00A0went on to defect from France, along with nine other players, to set up an Algerian team. This team later fought for an independent Algeria. They would display their national flag wherever they could.",
                 "Behind him stands Abdelhamid Bouchouk, and Zinedine Zidane with Karim Benzima. Both of Amazigh heritage, but they also play, or played for the French National team."
@@ -34,7 +35,7 @@
             "id": 3,
             "title": "figure 3",
             "angle": 180,
-            "maskImageFile": "mask3.png",
+            "maskImageFile": "mask3.webp",
             "text": [
                 "This section shows an Amazigh bride, but as a widow of her lost country, or region. She carries a stake, and the head of\u00A0the Freedom Fighter Emir Abdelkader. She stands directly opposite Djamila Bouhired, as they echo repeated similar\u00A0causes.",
                 "Behind her are two children playing and feeding from an Algerian wolf. This is suggestive of their native ties to their demographic region. There is also a young modern Caucasian woman facing the desert."
@@ -44,7 +45,7 @@
             "id": 4,
             "title": "figure 4",
             "angle": 240,
-            "maskImageFile": "mask4.png",
+            "maskImageFile": "mask4.webp",
             "text": [
                 "This section shows young women footballers of the Algerian National team. They are striving for independence of expression, against traditional gender stereotyping and strict Islamic laws."
             ]
@@ -53,7 +54,7 @@
             "id": 5,
             "title": "figure 5",
             "angle": 270,
-            "maskImageFile": "mask5.png",
+            "maskImageFile": "mask5.webp",
             "text": [
                 "This background section shows an Oil Refinery and the emergence of Tuaregs from the Southwest desert."
             ]

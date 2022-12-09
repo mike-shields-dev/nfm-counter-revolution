@@ -4,21 +4,23 @@ import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 import { DiscContext } from "../../context/DiscContext";
 import css from "./styles.module.css";
+import data from "../../data.json";
 
-const Content = ({ figures, baseAnimationDurationMillis, isAppIdle }) => {
+const Content = ({ figures, baseAnimDurationMs, isIdle }) => {
   const { index } = useContext(DiscContext);
+  const { intro } = data;
 
   const fadeAnim = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     transition: {
-      duration: baseAnimationDurationMillis / 3000,
-      delay: (baseAnimationDurationMillis / 1000) * (2 / 3),
+      duration: baseAnimDurationMs / 3000,
+      delay: (baseAnimDurationMs / 1000) * (2 / 3),
     },
     exit: {
       opacity: 0,
       transition: {
-        duration: baseAnimationDurationMillis / 3000,
+        duration: baseAnimDurationMs / 3000,
       },
     },
   };
@@ -26,19 +28,19 @@ const Content = ({ figures, baseAnimationDurationMillis, isAppIdle }) => {
   return (
     <div className={css.content} data-testid="content">
       <AnimatePresence>
-        {isAppIdle && (
+        {isIdle && (
           <motion.div className={css.content__text} {...fadeAnim}>
-            <p>Touch the artwork for details...</p>
+            <p>{intro}</p>
           </motion.div>
         )}
       </AnimatePresence>
 
       {figures.map((figure, i) => (
         <AnimatePresence key={figure.id}>
-          {!isAppIdle && i === index && (
+          {!isIdle && i === index && (
             <motion.div className={css.content__text} {...fadeAnim}>
               {figure.text.map((para) => (
-                <p key={uuidv4()}>{para}</p>
+                <p key={`${figure.id}${uuidv4()}`}>{para}</p>
               ))}
             </motion.div>
           )}
@@ -49,17 +51,17 @@ const Content = ({ figures, baseAnimationDurationMillis, isAppIdle }) => {
 };
 
 Content.propTypes = {
-  baseAnimationDurationMillis: PropTypes.number.isRequired,
+  baseAnimDurationMs: PropTypes.number.isRequired,
   figures: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
-      title: PropTypes.string,
       angle: PropTypes.number,
+      id: PropTypes.number,
       maskImageFile: PropTypes.string.isRequired,
       text: PropTypes.arrayOf(PropTypes.string),
+      title: PropTypes.string,
     })
   ).isRequired,
-  isAppIdle: PropTypes.bool.isRequired,
+  isIdle: PropTypes.bool.isRequired,
 };
 
 export default Content;

@@ -2,9 +2,9 @@
   --disc-mask-opacity: 0.65;
 }
 
-.disc {
+.Disc {
   aspect-ratio: 1;
-  background: url("/public/artwork_no_border_1080_lossy.webp");
+  background: url("/public/artwork.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 108.5%;
@@ -14,8 +14,8 @@
   filter: saturate(1.3);
 }
 
-.disc__mask {
-  filter: blur(16px);
+.Disc__mask {
+  filter: blur(20px);
   height: 1051;
   opacity: 0;
   overflow: visible;

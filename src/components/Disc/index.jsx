@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { DiscContext } from "../../context/DiscContext";
 import css from "./styles.module.css";
 
-const Disc = ({ figures, isAppIdle }) => {
+const Disc = ({ figures, isIdle }) => {
   const { index, discRef } = useContext(DiscContext);
 
   return (
     <svg
-      className={css.disc}
+      className={css.Disc}
       role="button"
       ref={discRef}
       viewBox="25 25 1000 1000"
@@ -16,11 +16,11 @@ const Disc = ({ figures, isAppIdle }) => {
     >
       {figures.map((fig, i) => (
         <image
-          className={`${css.disc__mask} ${
-            index === i && !isAppIdle ? css.fadeIn : css.fadeOut
+          className={`${css.Disc__mask} ${
+            index === i && !isIdle ? css.fadeIn : css.fadeOut
           }`}
           href={fig.maskImageFile}
-          key={fig.id}
+          key={`disc__mask${fig.id}`}
         />
       ))}
     </svg>
@@ -36,7 +36,7 @@ Disc.propTypes = {
       title: PropTypes.string,
     })
   ).isRequired,
-  isAppIdle: PropTypes.bool.isRequired,
+  isIdle: PropTypes.bool.isRequired,
 };
 
 export default Disc;

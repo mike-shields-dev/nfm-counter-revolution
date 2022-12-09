@@ -4,10 +4,9 @@
 }
 
 :root {
-  --base-animation-duration: ; /* This value is set by JS in the App Component */
+  --base-animation-duration: /* This value is set by JS in the App Component */;
   --color-dark: #111;
   --text-color: #999;
-  --font-family: "Basier Circle";
 }
 
 * {
@@ -28,7 +27,6 @@ body {
   color: var(--text-color);
   font-family: "Basier Circle";
   font-size: 1.5rem;
-  user-select: none;
 }
 
 main {

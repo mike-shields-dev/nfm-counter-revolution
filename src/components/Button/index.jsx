@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import css from "./styles.module.css";
 
-const Button = ({ handleClick, isDisabled }) => {
+const Button = ({ handleClick, isClickDisabled }) => {
   return (
     <div className={css.Button__container}>
       <button
         className={css.Button}
-        onClick={() => !isDisabled && handleClick()}
+        onClick={() => !isClickDisabled && handleClick()}
         type="button"
-        disabled={isDisabled}
+        disabled={isClickDisabled}
       >
         {" "}
       </button>
@@ -19,7 +19,7 @@ const Button = ({ handleClick, isDisabled }) => {
 
 Button.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  isDisabled: PropTypes.bool.isRequired,
+  isClickDisabled: PropTypes.bool.isRequired,
 };
 
 export default Button;
